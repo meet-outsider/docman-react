@@ -5,6 +5,12 @@ export interface RequestOption extends AxiosRequestConfig {
   headers?: { [key: string]: string };
 }
 
+export interface Res {
+  isOk: boolean,
+  data: any,
+  msg: string
+}
+
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_API,
   timeout: 1000,

@@ -7,7 +7,7 @@ const request = async <T>(
 ): Promise<AxiosResponse<T>> => {
   const {headers, ...rest} = options;
 
-  const response = await axiosInstance({
+  return await axiosInstance({
     headers: {
       ...axiosInstance.defaults.headers.common,
       ...headers,
@@ -15,8 +15,6 @@ const request = async <T>(
     ...rest,
     data,
   });
-
-  return response;
 
 };
 

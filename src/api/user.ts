@@ -1,5 +1,5 @@
 import request from "@/utils/request";
 
-export async function getUser() {
-  return await request.get('/user')
+export  function getUser() {
+  return request.get('/file/list')
 }
