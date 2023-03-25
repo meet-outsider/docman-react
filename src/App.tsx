@@ -1,10 +1,10 @@
 // import  {useState} from 'react';
 // import reactLogo from './assets/react.svg';
-import '@/styles/App.css';
+import '@/app/styles/App.css';
 import React, {useState, useEffect} from 'react';
 
 import Layout from '@/layout/Layout';
-import AlertDialog from "@/components/AlertDialog";
+import AlertDialog from "@/shared/AlertDialog";
 
 export default function App() {
   return (

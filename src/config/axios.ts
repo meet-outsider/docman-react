@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig} from "axios";
-import cache from "@/utils/cache";
+import cache from "@/app/utils/cache";
 
 export interface RequestOption extends AxiosRequestConfig {
   headers?: { [key: string]: string };

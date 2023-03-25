@@ -23,17 +23,17 @@ const menus = [
   },
   {
     name: "Customers",
-    path: "",
+    path: "/account",
     icon: <PeopleIcon/>
   },
   {
-    name: "Reports",
-    path: "",
+    name: "C1",
+    path: "/c1",
     icon: <BarChartIcon/>
   },
   {
-    name: "Integrations",
-    path: "",
+    name: "C2",
+    path: "/c2",
     icon: <LayersIcon/>
   }]
 const secondary = [

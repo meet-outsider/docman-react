@@ -9,15 +9,13 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import {MainListItems, SecondaryListItems} from './listItems';
 import {Outlet} from "react-router-dom";
-import {Avatar} from "@mui/material";
+import AccountMenu from "@/layout/AccountMenu";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function Copyright(props: any) {
   return (
@@ -121,12 +119,15 @@ function DashboardContent() {
               >
                 Dashboard
               </Typography>
-              <IconButton color="inherit">
-                <Badge badgeContent={10} color="secondary">
-                  {/*<NotificationsIcon/>*/}
-                  <Avatar alt="Remy Sharp" src="/assets/images/avatar.png"/>
-                </Badge>
-              </IconButton>
+              <AccountMenu/>
+              {/*<IconButton color="inherit">*/}
+              {/*  <AccountMenu/>*/}
+              {/*  /!*<Badge badgeContent={10} color="secondary">*!/*/}
+              {/*  /!*  /!*<NotificationsIcon/>*!/*!/*/}
+                {/*  <Avatar alt="Remy Sharp" src="/assets/images/avatar.png"/>*/}
+              {/*  /!*  <AccountMenu/>*!/*/}
+              {/*  /!*</Badge>*!/*/}
+              {/*</IconButton>*/}
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open}>
@@ -150,14 +151,14 @@ function DashboardContent() {
             </List>
           </Drawer>
           <Box component="main" sx={{
-                backgroundColor: (theme) =>
-                    theme.palette.mode === 'light'
-                        ? theme.palette.grey[100]
-                        : theme.palette.grey[900],
-                flexGrow: 1,
-                height: '100vh',
-                overflow: 'auto',
-              }}>
+            backgroundColor: (theme) =>
+                theme.palette.mode === 'light'
+                    ? theme.palette.grey[100]
+                    : theme.palette.grey[900],
+            flexGrow: 1,
+            height: '100vh',
+            overflow: 'auto',
+          }}>
             <Toolbar/>
             <Container maxWidth="lg" sx={{mt: 4, mb: 4}}>
               <Outlet/>

@@ -1,9 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Chart from "@/components/Chart";
-import Deposits from "@/components/Deposits";
-import Orders from "@/components/Orders";
+import Chart from "@/shared/Chart";
+import Deposits from "@/shared/Deposits";
+import Orders from "@/shared/Orders";
 
 export const Dashboard: React.FC = () => {
   return (
