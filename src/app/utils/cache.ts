@@ -6,7 +6,7 @@ interface LocalStorage {
   remove(key: string): void;
 }
 
-const token = "token"
+const token = "x-token"
 
 class LocalStorage implements LocalStorage {
   public get(key: string): string | null {

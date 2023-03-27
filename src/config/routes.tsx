@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import App, { Example } from "@/App";
 import { Dashboard } from "@/pages/dashboard";
 import LoginForm from "@/features/auth/LoginForm";
 import React from "react";
 import { ComponentWithCache, ComponentWithoutCache } from "@/pages/cache";
-import { User } from "@/pages/User";
+import Example from "@/pages/example";
+import App from "@/App";
+import User from "@/pages/UserPage";
 
 export const routes = createBrowserRouter([
   {

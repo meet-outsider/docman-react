@@ -3,10 +3,10 @@ import { closeAlert } from '@/features/alert/alertSlice';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import React, { useCallback } from 'react';
 
+
 function AlertDialog() {
   const dispatch = useDispatch();
-  const { open, message } = useSelector((state:any) => state.alert);
-
+  const { open, message } = useSelector((state: any) => state.alert);
   const handleClose = useCallback(() => {
     dispatch(closeAlert());
   }, [dispatch]);
@@ -40,4 +40,4 @@ function AlertDialog() {
   );
 }
 
-export default React.memo(AlertDialog);
+export default AlertDialog;

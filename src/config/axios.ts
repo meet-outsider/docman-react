@@ -26,11 +26,12 @@ axiosInstance.interceptors.request.use(function (config) {
   if (token && !config.headers.Authorization) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  config.headers['x-token'] = token; // 设置 x-token 请求头
   return config;
 
 }, function (error) {
   console.log("请求错误");
-  
+
   // message.error(error)
   // 对请求错误做些什么
   // return Promise.reject(error);
@@ -48,14 +49,9 @@ axiosInstance.interceptors.response.use(response => {
   throw new Error(`HTTP error status ${response.status}`);
 },
   error => {
-    console.log('response error and alert');
     const { response } = error
     const { dispatch } = store;
-
-    console.log('response error and alert');
-
-    dispatch(openAlert('nothing todo !just notify you'));    console.log('response error and alert');
-    
+    dispatch(openAlert('nothing todo !just notify you'));
     console.log(response.status);
     console.log(response.data);
   });

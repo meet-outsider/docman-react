@@ -9,92 +9,118 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Typography } from '@mui/material';
 
 const menus = [
   {
-    name: "Dashboard",
+    name: "主页",
     path: "/",
-    icon: <DashboardIcon/>
+    icon: <DashboardIcon />
   }, {
-    name: "Orders",
+    name: "example",
     path: "/example",
-    icon: <ShoppingCartIcon/>
+    icon: <ShoppingCartIcon />
   },
   {
     name: "Customers",
     path: "/customer",
-    icon: <PeopleIcon/>
+    icon: <PeopleIcon />
   },
   {
-    name: "Users",
+    name: "用户",
     path: "/users",
-    icon: <BarChartIcon/>
+    icon: <BarChartIcon />
   },
   {
     name: "C2",
     path: "/c2",
-    icon: <LayersIcon/>
+    icon: <LayersIcon />
   }]
 const secondary = [
   {
     name: "Current month",
     path: "",
-    icon: <AssignmentIcon/>,
+    icon: <AssignmentIcon />,
   },
   {
     name: "Last quarter",
     path: "",
-    icon: <AssignmentIcon/>,
+    icon: <AssignmentIcon />,
   },
   {
     name: "Year-end sale",
     path: "",
-    icon: <AssignmentIcon/>,
+    icon: <AssignmentIcon />,
   }
 ]
 export const MainListItems: React.FC = () => {
+  const [selectedIndex, setSelectedIndex] = React.useState(-1);
+  const navigate = useNavigate();
+
+  const handleListItemClick = (item: any, index: number) => {
+    setSelectedIndex(index);
+    navigate(item.path);
+  };
+
   return (
-      <React.Fragment>
-        {menus.map((item) => {
-          const navigate = useNavigate();
-          return (
-              <ListItemButton key={item.name} onClick={() => {
-                navigate(item.path)
-              }
-              }>
-                <ListItemIcon>
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.name}/>
-              </ListItemButton>
-          )
-        })}
-      </React.Fragment>
-  )
-}
+    <>
+      {menus.map((item, index) => (
+        <ListItemButton
+          key={item.name}
+          onClick={() => handleListItemClick(item, index)}
+          // onMouseOver={() => setSelectedIndex(index)}
+          // onMouseOut={() => setSelectedIndex(-1)}
+          sx={{
+            backgroundColor: selectedIndex !== index ? '#white' : 'RGB(226, 242, 253)',
+            borderRadius: '20px',
+            margin: '5px 0',
+            transition: 'background-color 0.2s ease-in-out'
+          }}
+        >
+          <ListItemIcon>{item.icon}</ListItemIcon>
+          <ListItemText primary={<Typography style={{ fontSize: '14px' }}> {item.name} </Typography>} />
+        </ListItemButton>
+      ))}
+    </>
+  );
+};
+
+
+
 
 
 export const SecondaryListItems: React.FC = () => {
   return (
-      <React.Fragment>
-        <ListSubheader component="div" inset>
-          Saved reports
-        </ListSubheader>
-        {secondary.map((item) => {
-          const navigate = useNavigate();
-          return (
-              <ListItemButton key={item.name} onClick={() => {
-                navigate(item.path)
+    <React.Fragment>
+      <ListSubheader component="div" inset>
+        Saved reports
+      </ListSubheader>
+      {secondary.map((item) => {
+        const navigate = useNavigate();
+        return (
+          <ListItemButton key={item.name} onClick={() => {
+            navigate(item.path)
+          }
+          }>
+            <ListItemIcon>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography style={{ fontSize: '14px' }}>
+                  {item.name}
+                </Typography>
               }
-              }>
-                <ListItemIcon>
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.name}/>
-              </ListItemButton>
-          )
-        })}
-      </React.Fragment>
+            />
+          </ListItemButton>
+        )
+      })}
+    </React.Fragment>
   )
 }
+
+
+
+
+

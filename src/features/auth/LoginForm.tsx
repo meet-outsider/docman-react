@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { loginFailure, loginStart, loginSuccess } from './authSlice';
 import { Login } from '@/api/user';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props: any) {
   return (
@@ -33,20 +34,16 @@ const theme = createTheme();
 
 export default function LoginForm() {
   const dispatch = useDispatch();
+  const navigation = useNavigate()
   const handlerLogin = async (data: any) => {
     dispatch(loginStart());
     const username = data.get('email')
     const password = data.get('password')
     const res = await Login({ username, password });
     if (res.status == 200) {
-      console.log(res.data.token);
       dispatch(loginSuccess(res.data.token));
+      navigation('/')
     } else {
-      console.log("error");
-      
-      console.log(res);
-      
-      console.log(res.data.error);
       dispatch(loginFailure(res.data.error));
     }
   };
@@ -54,14 +51,6 @@ export default function LoginForm() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     handlerLogin(data);
-    // dispatch(loginStart());
-    // Login(data.get('email'), data.get('password')
-    // console.log(
-    //   {
-    //     email: data.get('email'),
-    //     password: data.get('password'),
-    //   }
-    // );
   };
 
   return (
