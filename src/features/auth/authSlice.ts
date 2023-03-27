@@ -21,6 +21,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     loginStart: (state) => {
+      console.log("loginStart");
+      
       state.isLoading = true;
       state.error = null;
     },
@@ -34,7 +36,6 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
     logout: (state) => {
-      // console.log(state)
       console.log("logout")
       state.token = null;
       localStorage.removeItem('token');

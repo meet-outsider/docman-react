@@ -1,9 +1,10 @@
-import {createBrowserRouter} from "react-router-dom";
-import App, {Example} from "@/App";
-import {Dashboard} from "@/pages/dashboard";
+import { createBrowserRouter } from "react-router-dom";
+import App, { Example } from "@/App";
+import { Dashboard } from "@/pages/dashboard";
 import LoginForm from "@/features/auth/LoginForm";
 import React from "react";
-import Counter from "@/pages/Counter";
+import { ComponentWithCache, ComponentWithoutCache } from "@/pages/cache";
+import { User } from "@/pages/User";
 
 export const routes = createBrowserRouter([
   {
@@ -12,20 +13,27 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Dashboard/>,
+        element: <Dashboard />,
       },
       {
         path: "example",
-        element: <Example/>
+        element: <Example />
       },
       {
-        path: "c1",
-        element: <Counter/>
+        path: "customer",
+        element: <div>
+          <ComponentWithoutCache />
+          <ComponentWithCache/>
+        </div>
+      },
+      {
+        path:"users",
+        element:<User/>
       }
     ],
   },
   {
     path: "login",
-    element: <LoginForm/>
+    element: <LoginForm />
   }
 ]);

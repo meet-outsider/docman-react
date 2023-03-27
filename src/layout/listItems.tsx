@@ -23,12 +23,12 @@ const menus = [
   },
   {
     name: "Customers",
-    path: "/account",
+    path: "/customer",
     icon: <PeopleIcon/>
   },
   {
-    name: "C1",
-    path: "/c1",
+    name: "Users",
+    path: "/users",
     icon: <BarChartIcon/>
   },
   {

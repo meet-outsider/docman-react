@@ -6,11 +6,13 @@ import {RouterProvider} from "react-router-dom";
 import {routes} from "@/config/routes";
 import {Provider} from "react-redux";
 import store from "@/app/store";
+import AlertDialog from './shared/AlertDialog';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     // <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={routes}/>
+      <AlertDialog />
     </Provider>
     // </React.StrictMode>
 );
