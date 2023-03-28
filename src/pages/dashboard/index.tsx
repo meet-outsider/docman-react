@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import Chart from "@/shared/Chart";
 import Deposits from "@/shared/Deposits";
 import Orders from "@/shared/Orders";
+import {useTheme} from "@mui/material/styles";
 
 const backgroundColor = 'RGB(226, 242, 253)'
 export const Dashboard: React.FC = () => {
@@ -19,7 +20,7 @@ export const Dashboard: React.FC = () => {
               display: 'flex',
               flexDirection: 'column',
               height: 240,
-              backgroundColor
+              backgroundColor:useTheme().palette.secondary.main
             }}
           >
             <Chart />

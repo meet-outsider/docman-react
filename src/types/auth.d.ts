@@ -1,14 +1,19 @@
-interface IUser {
-    id: string;
-    username: string;
-    avatar: string;
-    roles: []
-}
 interface IRole {
-    id: string;
-    name: string;
+  name: string
 }
+
+interface IUser {
+  id: number,
+  username: string,
+  nickname: string,
+  email: string,
+  phone: number,
+  createdAt: string,
+  roles: IRole[]
+}
+
+
 interface IPermission {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 }
