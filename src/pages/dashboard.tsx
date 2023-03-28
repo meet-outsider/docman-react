@@ -43,7 +43,13 @@ export const Dashboard: React.FC = () => {
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius: '10px', }}>
             <Orders />
-            {/*<Outlet/>*/}
+            <Orders />
+            <Orders />
+            <Orders />
+            <Orders />
+            <Orders />
+            <Orders />
+            <Orders />
           </Paper>
         </Grid>
       </Grid>

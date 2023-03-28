@@ -18,13 +18,13 @@ const menus = [
     path: "/",
     icon: <DashboardIcon />
   }, {
-    name: "example",
-    path: "/example",
+    name: "casbin",
+    path: "/casbin",
     icon: <ShoppingCartIcon />
   },
   {
-    name: "Customers",
-    path: "/customer",
+    name: "文档",
+    path: "/document",
     icon: <PeopleIcon />
   },
   {
@@ -33,8 +33,12 @@ const menus = [
     icon: <BarChartIcon />
   },
   {
-    name: "C2",
-    path: "/c2",
+    name: "监控",
+    path: "/monitor",
+    icon: <LayersIcon />
+  },{
+    name: "example",
+    path: "/example",
     icon: <LayersIcon />
   }]
 const secondary = [
@@ -69,8 +73,6 @@ export const MainListItems: React.FC = () => {
         <ListItemButton
           key={item.name}
           onClick={() => handleListItemClick(item, index)}
-          // onMouseOver={() => setSelectedIndex(index)}
-          // onMouseOut={() => setSelectedIndex(-1)}
           sx={{
             backgroundColor: selectedIndex !== index ? '#white' : 'RGB(226, 242, 253)',
             borderRadius: '20px',

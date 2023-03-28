@@ -2,7 +2,7 @@ import { openAlert } from "@/features/alert/alertSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-export default function Example() {
+export default function CasbinPage() {
     const dispatch = useDispatch();
     useEffect(() => {
         console.log('Component is mounted');

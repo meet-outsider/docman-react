@@ -92,10 +92,10 @@ function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" sx={{ backgroundColor: 'white' }} open={open}>
+        <AppBar position="absolute" sx={{ backgroundColor: 'white', borderRadius: '15px' }} open={open}>
           <Toolbar
             sx={{
-              borderRadius: '10px',
+              borderRadius: '15px',
               color: 'black',
               backgroundColor: 'white',
               pr: '24px', // keep right padding when drawer closed
@@ -123,17 +123,9 @@ function DashboardContent() {
               Dashboard
             </Typography>
             <AccountMenu />
-            {/*<IconButton color="inherit">*/}
-            {/*  <AccountMenu/>*/}
-            {/*  /!*<Badge badgeContent={10} color="secondary">*!/*/}
-            {/*  /!*  /!*<NotificationsIcon/>*!/*!/*/}
-            {/*  <Avatar alt="Remy Sharp" src="/assets/images/avatar.png"/>*/}
-            {/*  /!*  <AccountMenu/>*!/*/}
-            {/*  /!*</Badge>*!/*/}
-            {/*</IconButton>*/}
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+        <Drawer variant="permanent" sx={{ borderRadius: '15px' }} open={open}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -163,7 +155,7 @@ function DashboardContent() {
           overflow: 'auto',
         }}>
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
             <Outlet />
             <Copyright sx={{ pt: 4 }} />
           </Container>
