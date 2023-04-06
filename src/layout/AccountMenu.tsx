@@ -27,7 +27,6 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
   const handleLogout = () => {
-    console.log('handleLogout')
     dispatch(logout());
     navigation('login')
   }
@@ -46,7 +45,6 @@ export default function AccountMenu() {
             aria-expanded={open ? 'true' : undefined}
           >
             <Avatar alt="Remy Sharp" src="/assets/images/avatar.png" />
-            {/*<Avatar sx={{ width: 32, height: 32 }}>M</Avatar>*/}
           </IconButton>
         </Tooltip>
       </Box>

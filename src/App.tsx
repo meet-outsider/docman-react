@@ -3,11 +3,12 @@ import '@/app/styles/App.css';
 import Layout from '@/layout/Layout';
 import React from 'react';
 import { primaryTheme, secondTheme } from '@/theme';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
 import { Theme } from '@mui/material/styles/createTheme';
 import { Button, Drawer } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
 
 export const App: React.FC = () => {
   const [theme, setTheme] = React.useState<Theme>(primaryTheme);
@@ -34,7 +35,13 @@ export const App: React.FC = () => {
         >
           显示抽屉
         </Button>
-        <Drawer anchor="right" open={open} onClose={toggleDrawer} sx={{}}>
+        <Drawer
+          style={{ zIndex: useTheme().zIndex.drawer + 1 }}
+          anchor="right"
+          open={open}
+          onClose={toggleDrawer}
+          sx={{}}
+        >
           <ThemeDrawer onSetTheme={handlerSetTheme} />
         </Drawer>
         <Layout />
@@ -44,9 +51,10 @@ export const App: React.FC = () => {
 };
 
 function ThemeDrawer(props: { onSetTheme: (theme: Theme) => void }) {
+  console.log('ThemeDrawer', useTheme().zIndex.drawer + 2);
   return (
-    <div
-      style={{
+    <Paper
+      sx={{
         width: 250,
         padding: '10px',
       }}
@@ -63,12 +71,11 @@ function ThemeDrawer(props: { onSetTheme: (theme: Theme) => void }) {
         {themes.map((item) => {
           return (
             <Button
+              variant="contained"
               key={item.name}
-              style={{
+              sx={{
                 width: '100%',
-                height: '50px',
                 borderRadius: '12px',
-                backgroundColor: 'rgb(220,214,214)',
                 margin: '5px 0',
               }}
               onClick={() => props.onSetTheme(item.theme)}
@@ -78,7 +85,7 @@ function ThemeDrawer(props: { onSetTheme: (theme: Theme) => void }) {
           );
         })}
       </Box>
-    </div>
+    </Paper>
   );
 }
 

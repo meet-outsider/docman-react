@@ -81,7 +81,7 @@ export function EnhancedTableHead(props: EnhancedTableProps) {
           {headCells.map((headCell) => (
               <TableCell
                   key={headCell.id}
-                  align={'center'}
+                  align={'left'}
                   padding={'normal'}
                   sortDirection={orderBy === headCell.id ? order : false}
               >
@@ -250,15 +250,15 @@ export default function UserTable() {
                                   id={labelId}
                                   scope="row"
                                   padding="none"
-                                  align={'center'}
+                                  align={'left'}
                               >
                                 {row.username}
                               </TableCell>
-                              <TableCell align={'center'}>{row.roles.map(role => role.name).join(', ')}</TableCell>
-                              <TableCell align={'center'}>{row.nickname}</TableCell>
-                              <TableCell align={'center'}>{row.phone}</TableCell>
-                              <TableCell align={'center'}>{row.email}</TableCell>
-                              <TableCell align={'center'}>{row.createdAt}</TableCell>
+                              <TableCell align={'left'}>{row.roles.map(role => role.name).join(', ')}</TableCell>
+                              <TableCell align={'left'}>{row.nickname}</TableCell>
+                              <TableCell align={'left'}>{row.phone}</TableCell>
+                              <TableCell align={'left'}>{row.email}</TableCell>
+                              <TableCell align={'left'}>{row.createdAt}</TableCell>
                               <TableCell>
                                 <IconButton color="secondary" aria-label="add an alarm" onClick={() => {
                                   setId(row.id)

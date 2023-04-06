@@ -1,12 +1,12 @@
-import {createTheme} from '@mui/material/styles';
-import {blue} from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
 
 export const primaryTheme = createTheme({
   components: {
     MuiIconButton: {
       styleOverrides: {
         root: {
-          color: '#3d87d9',
+          color: '#ecb5ff',
         },
       },
     },
