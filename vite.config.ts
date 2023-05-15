@@ -15,6 +15,11 @@ export default ({mode}) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
+        '/flowable-rest': {
+          target: env.VITE_FLOWABLE_BASEURL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/flowable-rest/, ''),
+        },
       },
     },
     resolve: {

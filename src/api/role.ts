@@ -1,4 +1,4 @@
-import request from "@/app/utils/request";
+import request from "@/utils/request";
 import { AxiosResponse } from "axios";
 
 

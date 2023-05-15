@@ -1,7 +1,7 @@
 // src/features/auth/authSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '@/app/store';
-import cache from '@/app/utils/cache';
+import { RootState } from '@/config/store';
+import cache from '@/utils/cache';
 
 // 定义一个接口，用来描述state的数据结构
 interface AuthState {

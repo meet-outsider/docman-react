@@ -1,53 +1,80 @@
-import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
+import { useMessage } from '@/hooks/useMessage';
+import { MessageType } from '@/components/Message';
+import { useEffect } from 'react';
+import { getIdentityUsers } from '@/api/flowable/users';
+import { getDefintion, getDefintions } from '@/api/flowable/defintions';
+import OverviewFlow from '@/components/OverviewFlow';
 
-async function getUser(): Promise<any> {
-  return await fetch('https://jsonplaceholder.typicode.com/users/1');
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+
+const defaultNodes = [
+  {
+    id: '1',
+    type: 'input',
+    data: { label: 'Input Node' },
+    position: { x: 0, y: 0 },
+  },
+
+  {
+    id: '2',
+    data: { label: 'Default Node' },
+    position: { x: 0, y: 100 },
+    // when you don't pass a type, the default one gets used
+  },
+  {
+    id: '3',
+    type: 'output',
+    data: { label: 'Output Node' },
+    position: { x: 0, y: 200 },
+  },
+  {
+    id: '4',
+    type: 'group',
+    data: null,
+    position: { x: 0, y: 300 },
+  },
+];
+
+const defaultEdges:any[] = [];
+
+function Flow() {
+  return <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} fitView />;
 }
 
-async function getRole(): Promise<any> {
-  return await fetch('https://jsonplaceholder.typicode.com/roles/1');
-}
+export default Flow;
 
-async function getProduct(): Promise<any> {
-  return await fetch('https://jsonplaceholder.typicode.com/todos/1');
-}
 
-export const ExamplePage: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [user, setUser] = useState({ username: 'ss' });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getUser();
-        if (!response.ok) {
-          throw new Error('Failed to fetch user data');
-        }
-        const data = await response.json();
-        onCallback(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const onCallback = (data: any) => {
-    setUser(data);
-  };
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+export function ExamplePage() {
+  const { showMessage, Message } = useMessage({
+    defaultType: MessageType.WARNING,
+  });
+  // useEffect(() => {
+  //   // getIdentityUsers().then((res) => {
+  //   //   console.log(res);
+  //   // });
+  //   // getDefintions().then((res) => {
+  //   //   console.log(res);
+  //   // });
+  //   getDefintion(
+  //     'createTimersProcess:1:13e81795-ed4f-11ed-b12f-0242ac1a0003'
+  //   ).then((res) => {
+  //     console.log(res);
+  //   });
+  // }, []);
+  function handleClick() {
+    showMessage('Hello, world!', MessageType.ERROR);
+  }
 
   return (
-      <div>
-        <h1>Example Page</h1>
-        <h2>{user.username}</h2>
-        <Button variant="contained" onClick={() => setOpen(true)}>
-          Open Form
-        </Button>
+    <div>
+      <Button onClick={handleClick}>Show Message</Button>
+      <div style={{ width: '100vw', height: '100vh' }}>
+        <Flow/>
+        <OverviewFlow />
       </div>
+      {Message}
+    </div>
   );
-};
+}

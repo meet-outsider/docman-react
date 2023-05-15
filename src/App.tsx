@@ -1,4 +1,4 @@
-import '@/app/styles/App.css';
+import '@/styles/App.css';
 
 import Layout from '@/layout/Layout';
 import React from 'react';

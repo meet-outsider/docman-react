@@ -8,7 +8,7 @@
   mkdir -p  /home/data/nginx/{www,conf,logs}
 ```
 
-- 创建docker network
+- 创建 docker network
 
 ```shell
   docker network create docman-network
