@@ -19,7 +19,12 @@ import { useNavigate } from 'react-router-dom';
 
 function Copyright(props: any) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -34,15 +39,15 @@ const theme = createTheme();
 
 export default function LoginForm() {
   const dispatch = useDispatch();
-  const navigation = useNavigate()
+  const navigation = useNavigate();
   const handlerLogin = async (data: any) => {
     dispatch(loginStart());
-    const username = data.get('email')
-    const password = data.get('password')
+    const username = data.get('email');
+    const password = data.get('password');
     const res = await Login({ username, password });
     if (res.status == 200) {
       dispatch(loginSuccess(res.data.token));
-      navigation('/')
+      navigation('/');
     } else {
       dispatch(loginFailure(res.data.error));
     }
@@ -66,7 +71,9 @@ export default function LoginForm() {
             backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+              t.palette.mode === 'light'
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -87,7 +94,12 @@ export default function LoginForm() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 1 }}
+            >
               <TextField
                 margin="normal"
                 required

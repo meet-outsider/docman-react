@@ -1,5 +1,5 @@
-import { Message, MessageType } from "@/components/Message";
-import { useState } from "react";
+import { Message, MessageType } from '@/components/Message';
+import { useState } from 'react';
 
 interface UseMessageProps {
   defaultType?: MessageType;
@@ -8,7 +8,7 @@ interface UseMessageProps {
 export function useMessage({ defaultType }: UseMessageProps = {}) {
   const [message, setMessage] = useState('');
   const [type, setType] = useState<MessageType>(
-    defaultType || MessageType.SUCCESS
+    defaultType || MessageType.SUCCESS,
   );
   const [open, setOpen] = useState(false);
 
@@ -27,6 +27,13 @@ export function useMessage({ defaultType }: UseMessageProps = {}) {
     type,
     showMessage,
     hideMessage,
-    Message: <Message open={open} type={type} message={message} onClose={hideMessage} />,
+    Message: (
+      <Message
+        open={open}
+        type={type}
+        message={message}
+        onClose={hideMessage}
+      />
+    ),
   };
 }

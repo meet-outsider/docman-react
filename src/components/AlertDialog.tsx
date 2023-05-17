@@ -1,8 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { closeAlert } from '@/features/alert/alertSlice';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from '@mui/material';
 import React, { useCallback } from 'react';
-
 
 function AlertDialog() {
   const dispatch = useDispatch();
@@ -24,8 +30,8 @@ function AlertDialog() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
             message:{message}
           </DialogContentText>
         </DialogContent>
