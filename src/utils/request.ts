@@ -1,5 +1,5 @@
-import { axiosInstance, RequestOption } from "@/config/axios";
-import { AxiosResponse } from "axios";
+import { axiosInstance, RequestOption } from '@/config/axios';
+import { AxiosResponse } from 'axios';
 // 封装请求方法
 const request = async <T>(
   options: RequestOption,
@@ -15,12 +15,11 @@ const request = async <T>(
     ...rest,
     data,
   });
-
 };
 
 const get = async <T>(
   url: string,
-  options: RequestOption = {}
+  options: RequestOption = {},
 ): Promise<AxiosResponse<T>> => {
   return request<T>({ ...options, url, method: 'GET' });
 };
@@ -28,7 +27,7 @@ const get = async <T>(
 const post = async <T>(
   url: string,
   data: any,
-  options: RequestOption = {}
+  options: RequestOption = {},
 ): Promise<AxiosResponse<T>> => {
   return request<T>({ ...options, url, method: 'POST' }, data);
 };
@@ -36,7 +35,7 @@ const post = async <T>(
 const put = async <T>(
   url: string,
   data: any,
-  options: RequestOption = {}
+  options: RequestOption = {},
 ): Promise<AxiosResponse<T>> => {
   return request<T>({ ...options, url, method: 'PUT' }, data);
 };
@@ -44,10 +43,13 @@ const put = async <T>(
 const del = async <T>(
   url: string,
   data: any,
-  options: RequestOption = {}
+  options: RequestOption = {},
 ): Promise<AxiosResponse<T>> => {
   return request<T>({ ...options, url, method: 'DELETE' }, data);
 };
 export default {
-  get, post, put, del
-}
+  get,
+  post,
+  put,
+  del,
+};

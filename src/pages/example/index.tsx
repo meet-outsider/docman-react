@@ -6,7 +6,7 @@ import { getIdentityUsers } from '@/api/flowable/users';
 import { getDefintion, getDefintions } from '@/api/flowable/defintions';
 import OverviewFlow from '@/components/OverviewFlow';
 
-import ReactFlow from 'reactflow';
+import ReactFlow, { MiniMap } from 'reactflow';
 import 'reactflow/dist/style.css';
 
 const defaultNodes = [
@@ -37,14 +37,20 @@ const defaultNodes = [
   },
 ];
 
-const defaultEdges:any[] = [];
+const defaultEdges: any[] = [];
 
+const minimapStyle = {
+  height: 120,
+};
 function Flow() {
-  return <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} fitView />;
+  return (
+    <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} fitView>
+      <MiniMap style={minimapStyle} zoomable pannable />
+    </ReactFlow>
+  );
 }
 
 export default Flow;
-
 
 export function ExamplePage() {
   const { showMessage, Message } = useMessage({
@@ -70,8 +76,8 @@ export function ExamplePage() {
   return (
     <div>
       <Button onClick={handleClick}>Show Message</Button>
-      <div style={{ width: '100vw', height: '100vh' }}>
-        <Flow/>
+      <div style={{ width: '60vw', height: '60vh' }}>
+        {/* <Flow/> */}
         <OverviewFlow />
       </div>
       {Message}

@@ -20,7 +20,7 @@ class FlowableHandler {
   private async makeRequest<T>(
     method: string,
     path: string,
-    params?: any
+    params?: any,
   ): Promise<T> {
     const fullURL = this.baseURL + path;
     const headers = {
@@ -42,7 +42,7 @@ class FlowableHandler {
   public async request(
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     url: string,
-    data?: any
+    data?: any,
   ): Promise<any> {
     return this.makeRequest<any>(method, url, data);
   }
@@ -51,5 +51,5 @@ class FlowableHandler {
 export const flowableHandler = new FlowableHandler(
   import.meta.env.VITE_FLOWABLE_API,
   import.meta.env.VITE_FLOWABLE_USERNAME,
-  import.meta.env.VITE_FLOWABLE_PASSWORD
+  import.meta.env.VITE_FLOWABLE_PASSWORD,
 );

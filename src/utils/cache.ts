@@ -6,7 +6,7 @@ interface LocalStorage {
   remove(key: string): void;
 }
 
-const token = "x-token"
+const token = 'x-token';
 
 class LocalStorage implements LocalStorage {
   public get(key: string): string | null {
@@ -25,14 +25,13 @@ class LocalStorage implements LocalStorage {
     return localStorage.getItem(token);
   }
 
-  public setToken(value:any) {
+  public setToken(value: any) {
     localStorage.setItem(token, value);
   }
 
   public cleanToken() {
     localStorage.removeItem(token);
   }
-
 }
 
 const cache = new LocalStorage();

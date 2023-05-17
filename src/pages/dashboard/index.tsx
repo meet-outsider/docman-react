@@ -1,10 +1,10 @@
-import React from "react";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Chart from "@/components/Chart";
-import Deposits from "@/components/Deposits";
-import Orders from "@/components/Orders";
-import {useTheme} from "@mui/material/styles";
+import React from 'react';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Chart from '@/components/Chart';
+import Deposits from '@/components/Deposits';
+import Orders from '@/components/Orders';
+import { useTheme } from '@mui/material/styles';
 
 export const Dashboard: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ export const Dashboard: React.FC = () => {
               display: 'flex',
               flexDirection: 'column',
               height: 240,
-              backgroundColor:useTheme().palette.secondary.main
+              backgroundColor: useTheme().palette.secondary.main,
             }}
           >
             <Chart />
@@ -41,7 +41,14 @@ export const Dashboard: React.FC = () => {
         </Grid>
         {/* Recent Orders */}
         <Grid item xs={12}>
-          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius: '10px', }}>
+          <Paper
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: '10px',
+            }}
+          >
             <Orders />
             <Orders />
             <Orders />
@@ -54,5 +61,5 @@ export const Dashboard: React.FC = () => {
         </Grid>
       </Grid>
     </>
-  )
-}
+  );
+};
